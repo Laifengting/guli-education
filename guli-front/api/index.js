@@ -1,8 +1,11 @@
 import request from '@/utils/request'
+
+const api_name = '/eduservice/indexfront'
+
 export default {
     getIndexData() {
         return request({
-            url: `/eduservice/indexfront/getIndex`,
+            url: `${api_name}/getIndex`,
             method: 'get'
         })
     }

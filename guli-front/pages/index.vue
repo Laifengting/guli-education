@@ -27,8 +27,8 @@
                     </header>
                     <div>
                         <article class="comm-course-list">
-                            <ul v-for="course in courseList" :key="course.id" class="of" id="bna">
-                                <li>
+                            <ul class="of" id="bna">
+                                <li v-for="course in courseList" :key="course.id">
                                     <div class="cc-l-wrap">
                                         <section class="course-img">
                                             <img :src="course.cover" class="img-responsive" :alt="course.title">
@@ -42,7 +42,8 @@
                                         </h3>
                                         <section class="mt10 hLh20 of">
                                             <span class="fr jgTag bg-green">
-                                                <i class="c-fff fsize12 f-fA">{{course.price}}</i>
+                                                <i
+                                                    class="c-fff fsize12 f-fA">{{Number(course.price)===0 ? '免费' : '会员专享'}}</i>
                                             </span>
                                             <span class="fl jgAttr c-ccc f-fA">
                                                 <i class="c-999 f-fA">{{course.buyCount}}</i>
@@ -56,7 +57,7 @@
                             <div class="clear"></div>
                         </article>
                         <section class="tac pt20">
-                            <a href="#" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
+                            <a href="/course" title="全部课程" class="comm-btn c-btn-2">全部课程</a>
                         </section>
                     </div>
                 </section>
@@ -73,83 +74,22 @@
                     <div>
                         <article class="i-teacher-list">
                             <ul class="of">
-                                <li>
+                                <li v-for="teacher in teacherList" :key="teacher.id">
                                     <section class="i-teach-wrap">
                                         <div class="i-teach-pic">
-                                            <a href="/teacher/1" title="姚晨">
-                                                <img alt="姚晨" src="~/assets/photo/teacher/1442297885942.jpg">
+                                            <a href="/teacher/1" :title="teacher.name">
+                                                <img :alt="teacher.name" :src="teacher.avatar">
                                             </a>
                                         </div>
                                         <div class="mt10 hLh30 txtOf tac">
-                                            <a href="/teacher/1" title="姚晨" class="fsize18 c-666">姚晨</a>
+                                            <a href="/teacher/1" :title="teacher.name"
+                                                class="fsize18 c-666">{{teacher.name}}</a>
                                         </div>
                                         <div class="hLh30 txtOf tac">
-                                            <span class="fsize14 c-999">北京师范大学法学院副教授</span>
+                                            <span class="fsize14 c-999">{{teacher.career}}</span>
                                         </div>
                                         <div class="mt15 i-q-txt">
-                                            <p class="c-999 f-fA">
-                                                北京师范大学法学院副教授、清华大学法学博士。自2004年至今已有9年的司法考试培训经验。长期从事司法考试辅导，深知命题规律，了解解题技巧。内容把握准确，授课重点明确，层次分明，调理清晰，将法条法理与案例有机融合，强调综合，深入浅出。
-                                            </p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li>
-                                    <section class="i-teach-wrap">
-                                        <div class="i-teach-pic">
-                                            <a href="/teacher/1" title="谢娜">
-                                                <img alt="谢娜" src="~/assets/photo/teacher/1442297919077.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="mt10 hLh30 txtOf tac">
-                                            <a href="/teacher/1" title="谢娜" class="fsize18 c-666">谢娜</a>
-                                        </div>
-                                        <div class="hLh30 txtOf tac">
-                                            <span class="fsize14 c-999">资深课程设计专家，专注10年AACTP美国培训协会认证导师</span>
-                                        </div>
-                                        <div class="mt15 i-q-txt">
-                                            <p class="c-999 f-fA">
-                                                十年课程研发和培训咨询经验，曾任国企人力资源经理、大型外企培训经理，负责企业大学和培训体系搭建；曾任专业培训机构高级顾问、研发部总监，为包括广东移动、东莞移动、深圳移动、南方电网、工商银行、农业银行、民生银行、邮储银行、TCL集团、清华大学继续教育学院、中天路桥、广西扬翔股份等超过200家企业提供过培训与咨询服务，并担任近50个大型项目的总负责人。
-                                            </p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li>
-                                    <section class="i-teach-wrap">
-                                        <div class="i-teach-pic">
-                                            <a href="/teacher/1" title="刘德华">
-                                                <img alt="刘德华" src="~/assets/photo/teacher/1442297927029.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="mt10 hLh30 txtOf tac">
-                                            <a href="/teacher/1" title="刘德华" class="fsize18 c-666">刘德华</a>
-                                        </div>
-                                        <div class="hLh30 txtOf tac">
-                                            <span class="fsize14 c-999">上海师范大学法学院副教授</span>
-                                        </div>
-                                        <div class="mt15 i-q-txt">
-                                            <p class="c-999 f-fA">
-                                                上海师范大学法学院副教授、清华大学法学博士。自2004年至今已有9年的司法考试培训经验。长期从事司法考试辅导，深知命题规律，了解解题技巧。内容把握准确，授课重点明确，层次分明，调理清晰，将法条法理与案例有机融合，强调综合，深入浅出。
-                                            </p>
-                                        </div>
-                                    </section>
-                                </li>
-                                <li>
-                                    <section class="i-teach-wrap">
-                                        <div class="i-teach-pic">
-                                            <a href="/teacher/1" title="周润发">
-                                                <img alt="周润发" src="~/assets/photo/teacher/1442297935589.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="mt10 hLh30 txtOf tac">
-                                            <a href="/teacher/1" title="周润发" class="fsize18 c-666">周润发</a>
-                                        </div>
-                                        <div class="hLh30 txtOf tac">
-                                            <span class="fsize14 c-999">考研政治辅导实战派专家，全国考研政治命题研究组核心成员。</span>
-                                        </div>
-                                        <div class="mt15 i-q-txt">
-                                            <p class="c-999 f-fA">
-                                                法学博士，北京师范大学马克思主义学院副教授，专攻毛泽东思想概论、邓小平理论，长期从事考研辅导。出版著作两部，发表学术论文30余篇，主持国家社会科学基金项目和教育部重大课题子课题各一项，参与中央实施马克思主义理论研究和建设工程项目。
-                                            </p>
+                                            <p class="c-999 f-fA">{{teacher.intro}}</p>
                                         </div>
                                     </section>
                                 </li>
@@ -157,7 +97,7 @@
                             <div class="clear"></div>
                         </article>
                         <section class="tac pt20">
-                            <a href="#" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
+                            <a href="/teacher" title="全部讲师" class="comm-btn c-btn-2">全部讲师</a>
                         </section>
                     </div>
                 </section>
@@ -198,6 +138,7 @@ export default {
             });
             indexApi.getIndexData().then((response) => {
                 this.courseList = response.data.data.courseList;
+                this.teacherList = response.data.data.teacherList;
             });
         },
     },
