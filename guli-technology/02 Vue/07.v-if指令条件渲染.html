@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{}} 插值表达式，绑定 vue 中的 data 数据 -->
+        <input type="checkbox" v-model="ok">同意许可协议
+        <!-- v:if条件指令：还有v-else、v-else-if 切换开销大 -->
+        <h1 v-if="ok">if：Lorem ipsum dolor sit amet.</h1>
+        <h1 v-else>no</h1>
+
+        <!-- v:show 条件指令 初始渲染开销大 -->
+        <h1 v-show="ok">show：Lorem ipsum dolor sit amet.</h1>
+        <h1 v-show="!ok">no</h1>
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义页面中显示的模型数据
+            data: {
+                ok: false
+            }
+        })
+    </script>
+</body>
+
+</html>

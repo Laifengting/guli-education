@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+
+
+
+<body>
+    <div id="app">
+        <!-- 请修添加具体操作 -->
+        <div>
+            <!-- 局部组件 -->
+            <Navbar></Navbar>
+        </div>
+        <div>
+            <!-- 全局组件1 -->
+            <bar></bar>
+        </div>
+        <div>
+            <!-- 全局组件2 -->
+            <bar2></bar2>
+        </div>
+
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <!-- 导入 全局组件的 js文件 -->
+    <script src="09.全局组件.js"></script>
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义 vue 使用的局部组件
+            components: {
+                //组件的名字
+                'Navbar': {
+                    //组件的内容
+                    template: '<ul><li>首页</li><li>局部组件</li></ul>'
+                }
+            },
+            // 定义页面中显示的模型数据
+            data: {
+                //  <!-- 请修添加具体操作 -->
+            },
+            methods: {
+                fun1() { },
+                fun2() { }
+            }
+        })
+    </script>
+</body>
+
+</html>

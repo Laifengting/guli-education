@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 1、简单的列表渲染 -->
+        <ul>
+            <li v-for="n in 10">{{ n }} </li>
+        </ul>
+        <ol>
+            <!-- 如果想获取索引，则使用index关键字，注意，圆括号中的index必须放在后面 -->
+            <li v-for="(n, index) in 10">{{ n }} - {{ index }} </li>
+        </ol>
+
+        <hr>
+        <!-- 2、遍历数据列表 -->
+        <table border="1">
+            <tr>
+                <td>索引</td>
+                <td>ID</td>
+                <td>用户名</td>
+                <td>年龄</td>
+            </tr>
+            <!-- <tr v-for="item in userList"></tr> -->
+            <tr v-for="(item, index) in userList">
+                <td>{{index}}</td>
+                <td>{{item.id}}</td>
+                <td>{{item.username}}</td>
+                <td>{{item.age}}</td>
+            </tr>
+        </table>
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义页面中显示的模型数据
+            data: {
+                userList: [
+                    { id: 1, username: 'helen', age: 18 },
+                    { id: 2, username: 'peter', age: 28 },
+                    { id: 3, username: 'andy', age: 38 }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

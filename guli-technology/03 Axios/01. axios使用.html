@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 显示 memberList 数组中的数据 -->
+        <div v-for="user in memberList">
+            {{user.name}} --- {{user.age}}
+        </div>
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <script src="../00 Static/axios.min.js"></script>
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义变量和初始值
+            data: {
+                //==== 请修添加具体操作 ====
+                // 定义一个空数组
+                memberList: []
+            },
+            //==== 实例的生命周期 ====
+            // 创建实例之后，在页面渲染之前执行
+            created() {
+                // 调用自定义的方法
+                this.getList();
+            },
+            // 自定义方法
+            methods: {
+                getList() {
+                    // axios.请求方法('路径地址和文件名')
+                    axios.get('data.json')
+                        .then(response => {
+                            // response 就是请求之后返回的数据
+                            // console.log(response);
+                            // 通过 response 获取具体数据，赋值给定义的空数组。
+                            this.memberList = response.data.data.items;
+                            // console.log(this.memberList);
+                        })
+                        // 请求失败执行 catch 方法
+                        .catch(error => {
+                            // console.log(error);
+                        })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

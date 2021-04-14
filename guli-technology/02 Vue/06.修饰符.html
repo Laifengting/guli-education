@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{}} 插值表达式，绑定 vue 中的 data 数据 -->
+        <!-- 修饰符用于指出一个指令应该以特殊方式绑定。
+        这里的 .prevent 修饰符告诉 v-on 指令对于触发的事件调用js的 event.preventDefault()：
+        即阻止表单提交的默认行为 -->
+        <form action="save" v-on:submit.prevent="onSubmit">
+            <label for="username">
+                <input type="text" id="username" v-model="user.username">
+                <button type="submit">保存</button>
+            </label>
+        </form>
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义页面中显示的模型数据
+            data: {
+                user: {}
+            },
+            methods: {
+                onSubmit() {
+                    if (this.user.username) {
+                        console.log('提交表单')
+                    } else {
+                        alert('请输入用户名')
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请修改网页标题</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 请修添加具体操作 -->
+        hello;
+    </div>
+    <script src="../00 Static/vue.min.js"></script>
+    <!-- 
+    <script src="要加载的模块.js"></script>
+    -->
+    <script>
+        // 创建一个 vue 对象
+        new Vue({
+            // 绑定 vue 作用的范围
+            el: '#app',
+            // 定义页面中显示的模型数据
+            data: {
+                //==== 请修添加具体操作 ====
+            },
+            // 自定义方法
+            methods: {
+                fun1() { },
+                fun2() { }
+            },
+            //==== 实例的生命周期 ====
+            // 创建实例之前
+            beforeCreate() {
+                debugger
+                console.log("beforeCreate...");
+            },
+            // 创建实例之后
+            created() {
+                debugger
+                console.log("created...");
+            },
+            // 挂载渲染之前
+            beforeMount() {
+                debugger
+                console.log("beforeMount...");
+            },
+            // 挂载渲染之后
+            mounted() {
+                debugger
+                console.log("mounted...");
+            },
+            // 修改之前
+            beforeupdate() {
+                debugger
+                console.log("beforeupdate...");
+            },
+            // 修改之后
+            updated() {
+                debugger
+                console.log("updated...");
+            },
+            // 销毁之前
+            beforeDestroy() {
+                debugger
+                console.log("beforeDestroy...");
+            },
+            // 销毁之后
+            destroyed() {
+                debugger
+                console.log("destroyed...");
+            },
+        })
+    </script>
+</body>
+
+</html>
