@@ -3,12 +3,12 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: 'guli-user',
+        title: '谷粒教育',
         meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-            { hid: 'keywords', name: 'keywords', content: '谷粒教育' },
-            { hid: 'description', name: 'description', content: '谷粒教育' }
+            { hid: 'keywords', name: 'keywords', content: '谷粒教育，谷粒教育，谷粒教育' },
+            { hid: 'description', name: 'description', content: '谷粒教育，天下没有难学的技术' }
         ],
         link: [
             { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
