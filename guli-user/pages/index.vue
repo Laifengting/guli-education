@@ -4,16 +4,13 @@
         <!-- 幻灯片 开始 -->
         <div v-swiper:mySwiper="swiperOption">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background: #040B1B;">
-                    <a target="_blank" href="/">
-                        <img src="~/assets/photo/banner/1525939573202.jpg" alt="首页banner">
+
+                <div v-for="banner in bannerList" :key="banner.id" class="swiper-slide" style="background: #040B1B;">
+                    <a target="_blank" :href="banner.linkUrl">
+                        <img :src="banner.imageUrl" :alt="banner.title">
                     </a>
                 </div>
-                <div class="swiper-slide" style="background: #F3260B;">
-                    <a target="_blank" href="/">
-                        <img src="~/assets/photo/banner/153525d0ef15459596.jpg" alt="首页banner">
-                    </a>
-                </div>
+
             </div>
             <div class="swiper-pagination swiper-pagination-white"></div>
             <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
@@ -344,6 +341,8 @@
 </template>
 
 <script>
+import bannerApi from '@/api/index/banner';
+
 export default {
     data() {
         return {
@@ -358,7 +357,21 @@ export default {
                     prevEl: '.swiper-button-prev', //前一页dom节点
                 },
             },
+            // banner 数组
+            bannerList: [],
         };
+    },
+    created() {
+        // 调用查询 banner 方法
+        this.getBannerList();
+    },
+
+    methods: {
+        getBannerList() {
+            bannerApi.getListBannerApi().then((response) => {
+                this.bannerList = response.data.data.list;
+            });
+        },
     },
 };
 </script>
