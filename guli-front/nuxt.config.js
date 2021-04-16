@@ -25,7 +25,8 @@ export default {
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         '@/plugins/element-ui',
-        { src: '~/plugins/nuxt-swiper-plugin.js', ssr: false }
+        { src: '~/plugins/swiper.js', ssr: false },
+        '@/plugins/vue-qriously',
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
