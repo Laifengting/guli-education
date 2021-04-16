@@ -36,7 +36,6 @@ export default {
         return request({
                 url: `${user_api_name}/getUserInfo`,
                 method: 'get',
-                data: loginDto,
                 // headers: {'token': cookie.get('guli_token')}
             })
             //headers: {'token': cookie.get('guli_token')} 

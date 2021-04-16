@@ -147,6 +147,7 @@ export default {
             }
             return callback();
         },
+        // 校验密码
         checkPassword(rule, value, callback) {
             if (!/^\S*(?=\S{6,})(?=\S*\d)(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[!@#$%^&*? ])\S*$/.test(value)) {
                 return callback(new Error('最少6位，至少1个大写字母、小写字母、数字、特殊字符'));
