@@ -26,11 +26,9 @@ service.interceptors.request.use(
 // http response 响应拦截器
 service.interceptors.response.use(
     response => {
-        //debugger
         if (response.data.code == 28004) {
             console.log("response.data.resultCode是28004")
                 // 返回 错误代码-1 清除ticket信息并跳转到登录页面
-                //debugger
             window.location.href = "/login"
             return
         } else {
@@ -44,13 +42,12 @@ service.interceptors.response.use(
                     })
                 }
             } else {
-                return response;
+                return response.data;
             }
         }
     },
     error => {
         return Promise.reject(error.response) // 返回接口返回的错误信息
     });
-
 
 export default service
