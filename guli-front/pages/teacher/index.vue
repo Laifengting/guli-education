@@ -50,21 +50,19 @@
                 <div>
                     <div class="paging">
                         <!-- undisable这个class是否存在，取决于数据属性hasPrevious -->
-                        <a :class="{undisable: !data.hasPrevious}" @click.prevent="gotoPage(1)" href="#"
-                            title="首页">首</a>
+                        <a :class="{undisable: !data.hasPrevious}" @click.prevent="gotoPage(1)" title="首页">首</a>
 
-                        <a :class="{undisable: !data.hasPrevious}" @click.prevent="gotoPage(data.current-1)" href="#"
+                        <a :class="{undisable: !data.hasPrevious}" @click.prevent="gotoPage(data.current-1)"
                             title="前一页">&lt;</a>
 
                         <a :class="{current: data.current === page, undisable: data.current === page}" :key="page"
-                            :title="'第'+page+'页'" @click.prevent="gotoPage(page)" href="#"
+                            :title="'第'+page+'页'" @click.prevent="gotoPage(page)"
                             v-for="page in data.pages">{{ page }}</a>
 
-                        <a :class="{undisable: !data.hasNext}" @click.prevent="gotoPage(data.current+1)" href="#"
+                        <a :class="{undisable: !data.hasNext}" @click.prevent="gotoPage(data.current+1)"
                             title="后一页">&gt;</a>
 
-                        <a :class="{undisable: !data.hasNext}" @click.prevent="gotoPage(data.pages)" href="#"
-                            title="末页">末</a>
+                        <a :class="{undisable: !data.hasNext}" @click.prevent="gotoPage(data.pages)" title="末页">末</a>
                         <div class="clear" />
                     </div>
                 </div>
