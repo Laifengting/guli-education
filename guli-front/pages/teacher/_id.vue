@@ -1,88 +1,88 @@
 <template>
-	<div class="bg-fa of" id="aCoursesList">
-		<!-- 讲师介绍 开始 -->
-		<section class="container">
-			<header class="comm-title">
-				<h2 class="fl tac">
-					<span class="c-333">讲师介绍</span>
-				</h2>
-			</header>
-			<div class="t-infor-wrap">
-				<!-- 讲师基本信息 -->
-				<section class="fl t-infor-box c-desc-content">
-					<div class="mt20 ml20">
-						<section class="t-infor-pic">
-							<img :src="data.teacherVo.avatar">
-						</section>
-						<h3 class="hLh30">
+    <div class="bg-fa of" id="aCoursesList">
+        <!-- 讲师介绍 开始 -->
+        <section class="container">
+            <header class="comm-title">
+                <h2 class="fl tac">
+                    <span class="c-333">讲师介绍</span>
+                </h2>
+            </header>
+            <div class="t-infor-wrap">
+                <!-- 讲师基本信息 -->
+                <section class="fl t-infor-box c-desc-content">
+                    <div class="mt20 ml20">
+                        <section class="t-infor-pic">
+                            <img :src="data.teacherVo.avatar">
+                        </section>
+                        <h3 class="hLh30">
                             <span
-									class="fsize24 c-333">{{data.teacherVo.name}}&nbsp;{{data.teacherVo.level===1?'高级讲师':'首席讲师'}}</span>
-						</h3>
-						<section class="mt10">
-							<span class="t-tag-bg">{{data.teacherVo.career}}</span>
-						</section>
-						<section class="t-infor-txt">
-							<p class="mt20">
-								{{data.teacherVo.intro}}
-							</p>
-						</section>
-						<div class="clear"></div>
-					</div>
-				</section>
-				<div class="clear"></div>
-			</div>
-			<section class="mt30">
-				<div>
-					<header class="comm-title all-teacher-title c-course-content">
-						<h2 class="fl tac">
-							<span class="c-333">主讲课程</span>
-						</h2>
-						<section class="c-tab-title">
-							<a href="javascript: void(0)">&nbsp;</a>
-						</section>
-					</header>
-					<!-- /无数据提示 开始-->
-					<section class="no-data-wrap" v-if="data.teacherVo.courseInfoList.length==0">
-						<em class="icon30 no-data-ico">&nbsp;</em>
-						<span class="c-666 fsize14 ml10 vam">没有相关数据，小编正在努力整理中...</span>
-					</section>
-					<!-- /无数据提示 结束-->
-					<article class="comm-course-list" v-if="data.teacherVo.courseInfoList.length>0">
-						<ul class="of">
-							<li :key="course.id" v-for="course in data.teacherVo.courseInfoList">
-								<div class="cc-l-wrap">
-									<section class="course-img">
-										<img :src="course.cover" class="img-responsive">
-										<div class="cc-mask">
-											<a :href="'/course/'+course.id" class="comm-btn c-btn-1" target="_blank"
-											   title="开始学习">开始学习</a>
-										</div>
-									</section>
-									<h3 class="hLh30 txtOf mt10">
-										<a :href="'/course/'+course.id" :title="course.title" class="course-title fsize18 c-333"
-										   target="_blank">{{course.title}}</a>
-									</h3>
-								</div>
-							</li>
-						</ul>
-						<div class="clear"></div>
-					</article>
-				</div>
-			</section>
-		</section>
-		<!-- /讲师介绍 结束 -->
-	</div>
+                                class="fsize24 c-333">{{data.teacherVo.name}}&nbsp;{{data.teacherVo.level===1?'高级讲师':'首席讲师'}}</span>
+                        </h3>
+                        <section class="mt10">
+                            <span class="t-tag-bg">{{data.teacherVo.career}}</span>
+                        </section>
+                        <section class="t-infor-txt">
+                            <p class="mt20">
+                                {{data.teacherVo.intro}}
+                            </p>
+                        </section>
+                        <div class="clear"></div>
+                    </div>
+                </section>
+                <div class="clear"></div>
+            </div>
+            <section class="mt30">
+                <div>
+                    <header class="comm-title all-teacher-title c-course-content">
+                        <h2 class="fl tac">
+                            <span class="c-333">主讲课程</span>
+                        </h2>
+                        <section class="c-tab-title">
+                            <a href="javascript: void(0)">&nbsp;</a>
+                        </section>
+                    </header>
+                    <!-- /无数据提示 开始-->
+                    <section class="no-data-wrap" v-if="data.teacherVo.courseInfoList.length==0">
+                        <em class="icon30 no-data-ico">&nbsp;</em>
+                        <span class="c-666 fsize14 ml10 vam">没有相关数据，小编正在努力整理中...</span>
+                    </section>
+                    <!-- /无数据提示 结束-->
+                    <article class="comm-course-list" v-if="data.teacherVo.courseInfoList.length>0">
+                        <ul class="of">
+                            <li :key="course.id" v-for="course in data.teacherVo.courseInfoList">
+                                <div class="cc-l-wrap">
+                                    <section class="course-img">
+                                        <img :src="course.cover" class="img-responsive">
+                                        <div class="cc-mask">
+                                            <a :href="'/course/'+course.id" class="comm-btn c-btn-1" target="_blank"
+                                                title="开始学习">开始学习</a>
+                                        </div>
+                                    </section>
+                                    <h3 class="hLh30 txtOf mt10">
+                                        <a :href="'/course/'+course.id" :title="course.title"
+                                            class="course-title fsize18 c-333" target="_blank">{{course.title}}</a>
+                                    </h3>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="clear"></div>
+                    </article>
+                </div>
+            </section>
+        </section>
+        <!-- /讲师介绍 结束 -->
+    </div>
 </template>
 <script>
-	import teacherApi from '@/api/teacher';
+import teacherApi from '@/api/teacher';
 
-	export default {
-		// 执行异步调用方法 asyncData，只会调用一次
-		// params：相当于 this.$route.params.id 就等于现在的 params.id
-		asyncData({params, error}) {
-			return teacherApi.getTeachInfoById(params.id).then((response) => {
-				return {data: response.data};
-			});
-		},
-	};
+export default {
+    // 执行异步调用方法 asyncData，只会调用一次
+    // params：相当于 this.$route.params.id 就等于现在的 params.id
+    asyncData({ params, error }) {
+        return teacherApi.getTeachInfoById(params.id).then((response) => {
+            return { data: response.data };
+        });
+    },
+};
 </script>
