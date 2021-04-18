@@ -1,21 +1,21 @@
 {
-    "success": true,
-    "code": 20000,
-    "message": "成功",
-    "data": {
-        "items": [
-            {
-                "name": "Tom",
-                "age": 20
-            },
-            {
-                "name": "Jack",
-                "age": 22
-            },
-            {
-                "name": "Lucy",
-                "age": 19
-            }
-        ]
-    }
+	"success": true,
+	"code": 20000,
+	"message": "成功",
+	"data": {
+		"items": [
+			{
+				"name": "Tom",
+				"age": 20
+			},
+			{
+				"name": "Jack",
+				"age": 22
+			},
+			{
+				"name": "Lucy",
+				"age": 19
+			}
+		]
+	}
 }

@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>请修改网页标题</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<title>请修改网页标题</title>
+	</head>
 
-<body>
-    <div id="app">
-        <input type="text" v-bind:value="searchMap.keyWord">
-        <input type="text" v-model="searchMap.keyWord">
-        <p>{{searchMap.keyWord}}</p>
-    </div>
-    <script src="../00 Static/vue.min.js"></script>
-    <script>
-        // 创建一个 vue 对象
-        new Vue({
-            // 绑定 vue 作用的范围
-            el: '#app',
-            // 定义页面中显示的模型数据
-            data: {
-                searchMap: {
-                    keyWord: '尚硅谷'
-                }
-            }
-        })
-    </script>
-</body>
+	<body>
+		<div id="app">
+			<input type="text" v-bind:value="searchMap.keyWord">
+			<input type="text" v-model="searchMap.keyWord">
+			<p>{{searchMap.keyWord}}</p>
+		</div>
+		<script src="../00 Static/vue.min.js"></script>
+		<script>
+			// 创建一个 vue 对象
+			new Vue({
+				// 绑定 vue 作用的范围
+				el: '#app',
+				// 定义页面中显示的模型数据
+				data: {
+					searchMap: {
+						keyWord: '尚硅谷'
+					}
+				}
+			})
+		</script>
+	</body>
 
 </html>

@@ -1,17 +1,17 @@
 {
-    "name": "guli-education",
-    "version": "3.8.0",
-    "license": "MIT",
-    "description": "谷粒教育管理系统",
-    "author": "Laifengting / <laifengting@foxmail.com>",
-    "scripts": {},
-    "engines": {
-        "node": ">= 6.0.0",
-        "npm": ">= 3.0.0"
-    },
-    "browserslist": [
-        "> 1%",
-        "last 2 versions",
-        "not ie <= 8"
-    ]
+	"name": "guli-education",
+	"version": "3.8.0",
+	"license": "MIT",
+	"description": "谷粒教育管理系统",
+	"author": "Laifengting / <laifengting@foxmail.com>",
+	"scripts": {},
+	"engines": {
+		"node": ">= 6.0.0",
+		"npm": ">= 3.0.0"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 2 versions",
+		"not ie <= 8"
+	]
 }

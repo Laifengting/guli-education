@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<title>Document</title>
+	</head>
 
-<body>
-    <div id="app">
-        <!-- v-bind 指令
-            单向数据绑定
-            这个指令一般用在标签属性里面，获取值。
-         -->
-        <h1 v-bind:title="message">
-            {{content}}
-        </h1>
+	<body>
+		<div id="app">
+			<!-- v-bind 指令
+				单向数据绑定
+				这个指令一般用在标签属性里面，获取值。
+			 -->
+			<h1 v-bind:title="message">
+				{{content}}
+			</h1>
 
-        <!-- 简写方式 -->
-        <h2 :title="message">
-            {{content}}
-        </h2>
+			<!-- 简写方式 -->
+			<h2 :title="message">
+				{{content}}
+			</h2>
 
-
-    </div>
-    <script src="../00 Static/vue.min.js"></script>
-    <script>
-        // 创建一个 vue 对象
-        new Vue({
-            // 绑定 vue 作用的范围
-            el: '#app',
-            // 定义页面中显示的模型数据
-            data: {
-                content: '我是标题',
-                message: '页面加载于 ' + new Date().toLocaleString()
-            }
-        })
-    </script>
-</body>
+		</div>
+		<script src="../00 Static/vue.min.js"></script>
+		<script>
+			// 创建一个 vue 对象
+			new Vue({
+				// 绑定 vue 作用的范围
+				el: '#app',
+				// 定义页面中显示的模型数据
+				data: {
+					content: '我是标题',
+					message: '页面加载于 ' + new Date().toLocaleString()
+				}
+			})
+		</script>
+	</body>
 
 </html>
