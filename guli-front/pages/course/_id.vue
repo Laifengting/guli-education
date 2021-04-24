@@ -13,7 +13,7 @@
             </section>
             <div>
                 <article class="c-v-pic-wrap" style="height: 357px">
-                    <section class="p-h-video-box" id="videoPlay" >
+                    <section class="p-h-video-box" id="videoPlay">
                         <img :alt="data.title" :src="data.cover" class="dis c-v-pic" />
                     </section>
                 </article>
@@ -40,12 +40,13 @@
                             </span>
                         </section>
                         <section class="c-attr-mt">
-                            <a class="comm-btn c-btn-3" href="#" title="立即观看">立即观看</a>
+                            <a class="comm-btn c-btn-3" v-if="Number(data.price) === 0 || Number(payStatus) === 1" href="#" title="立即观看" @click="playVideo()">立即观看</a>
+                            <a class="comm-btn c-btn-3" v-else href="#" title="立即观看" @click="createOrders()">购买课程</a>
                         </section>
                     </section>
                 </aside>
                 <aside class="thr-attr-box">
-                    <ol class="thr-attr-ol clearfix">
+                    <ol class="thr-attr-ol">
                         <li>
                             <p>&nbsp;</p>
                             <aside>
@@ -106,7 +107,7 @@
                                 </div>
                                 <!-- /课程介绍 -->
                                 <div class="mt50">
-                                    <h6 class="c-g-content c-infor-title">
+                                    <h6 class="c-g-content c-infor-title" id="course_content">
                                         <span>课程大纲</span>
                                     </h6>
                                     <section class="mt20">
@@ -248,6 +249,8 @@ import cookie from 'js-cookie';
 
 import courseApi from '@/api/course';
 import commentApi from '@/api/comment';
+import orderApi from '@/api/order';
+
 export default {
     // 执行异步调用方法 asyncData，只会调用一次
     // params：相当于 this.$route.params.id 就等于现在的 params.id
@@ -264,7 +267,7 @@ export default {
         return {
             // 分页
             map: {},
-            // 添加评价
+            // 添加评价时候用的数据
             comment: {
                 memberId: '',
                 nickname: '',
@@ -273,6 +276,10 @@ export default {
                 teacherId: '',
                 content: '',
             },
+            // 支付状态:0未支付，1已支付
+            payStatus: 0,
+            // 订单编号
+            orderNo: '',
         }
     },
 
@@ -286,11 +293,16 @@ export default {
             this.comment.nickname = JSON.parse(userInfoStr).nickname;
         }
         this.gotoPage(1);
+        // 根据用户id 课程id 查询订单信息
+        if (this.comment.memberId) {
+            this.getOrderInfo();
+        }
+
     },
     methods: {
         // 分页查询与页面跳转
         gotoPage(page) {
-            commentApi.getCommentPageApi(page, 8).then((response) => {
+            commentApi.getCommentPageApi(this.data.id, page, 8).then((response) => {
                 this.map = response.data;
             });
         },
@@ -314,6 +326,23 @@ export default {
                     this.gotoPage(this.map.current);
                 }
             });
+        },
+        // 生成订单
+        createOrders() {
+            // 生成订单
+            orderApi.createOrderApi(this.data.id).then((response) => {
+                // 获取返回订单号
+                this.orderNo = response.data.orderNo
+                // 跳转到订单详情显示页面
+                this.$router.push({ path: '/order/' + this.orderNo })
+            })
+        },
+
+        // 根据 memberId courseId 获取订单状态
+        getOrderInfo() {
+            orderApi.getOrderInfoApi(this.comment.memberId, this.data.id).then((response) => {
+                this.payStatus = response.data.order.status;
+            })
         },
     }
 };

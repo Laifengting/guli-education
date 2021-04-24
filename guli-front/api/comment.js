@@ -4,9 +4,9 @@ const api_name = '/eduservice/frontComment'
 
 export default {
     // 获取评论分页
-    getCommentPageApi(curPage, limit) {
+    getCommentPageApi(courseId, curPage, limit) {
         return request({
-            url: `${api_name}/getCommentPage/${curPage}/${limit}`,
+            url: `${api_name}/getCommentPage/${courseId}/${curPage}/${limit}`,
             method: 'get',
         })
     },
